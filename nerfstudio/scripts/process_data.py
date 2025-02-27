@@ -35,6 +35,7 @@ from nerfstudio.process_data import (
 )
 from nerfstudio.process_data.colmap_converter_to_nerfstudio_dataset import BaseConverterToNerfstudioDataset
 from nerfstudio.process_data.images_to_nerfstudio_dataset import ImagesToNerfstudioDataset
+from nerfstudio.process_data.megasam_images_to_nerfstudio_dataset import MegaSamImagesToNerfstudioDataset
 from nerfstudio.process_data.video_to_nerfstudio_dataset import VideoToNerfstudioDataset
 from nerfstudio.utils.rich_utils import CONSOLE
 
@@ -522,6 +523,7 @@ class NotInstalled:
 
 
 Commands = Union[
+    Annotated[MegaSamImagesToNerfstudioDataset, tyro.conf.subcommand(name="megasam")],
     Annotated[ImagesToNerfstudioDataset, tyro.conf.subcommand(name="images")],
     Annotated[VideoToNerfstudioDataset, tyro.conf.subcommand(name="video")],
     Annotated[ProcessPolycam, tyro.conf.subcommand(name="polycam")],
